@@ -110,6 +110,25 @@ myArrayProto.reduce = function(callback, initialValue = this[0]) {
 
 };
 
+myArrayProto.flat = function flat(depth = 1) {
+
+  if (depth === 0) return this;
+
+  let res = [];
+
+  for (let i = 0; i < this.length; ++i) {
+
+    if (MyArray.isMyArray(this[i])) {
+      res = res.concat(this[i].flat(depth - 1));
+    } else {
+      res = res.concat(this[i]);
+    }
+  }
+
+  return res;
+
+};
+
 
 
 MyArray.prototype = myArrayProto;
