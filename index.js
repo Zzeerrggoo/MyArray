@@ -52,6 +52,21 @@ myArrayProto.includes = function(searchElement, fromIndex = 0) {
   return false;
 };
 
+myArrayProto.join = function(separator = ',') {
+
+  if (this.length === 0) return '';
+
+  let res = '';
+  for (let i = 0; i < this.length - 1; ++i) {
+    res += this[i] + separator;
+  }
+
+  res += this[this.length - 1];
+
+  return res;
+
+};
+
 
 
 MyArray.prototype = myArrayProto;
