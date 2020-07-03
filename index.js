@@ -95,6 +95,22 @@ myArrayProto.map = function(callback) {
 
 };
 
+myArrayProto.reduce = function(callback, initialValue = this[0]) {
+
+  if (this.length === 1)
+    return this;
+
+  let accumulator = initialValue;
+
+  for (let i = 0; i < this.length; ++i) {
+    accumulator = callback(accumulator, this[i], i, this);
+  }
+
+  return accumulator;
+
+};
+
+
 
 MyArray.prototype = myArrayProto;
 
