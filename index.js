@@ -129,7 +129,13 @@ myArrayProto.flat = function flat(depth = 1) {
 
 };
 
+myArrayProto.pop = function() {
 
+  const lastItem = this[this.length - 1];
+  delete this[this.length - 1];
+  return lastItem;
+
+};
 
 MyArray.prototype = myArrayProto;
 
