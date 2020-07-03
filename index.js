@@ -30,6 +30,17 @@ myArrayProto.push = function() {
 
 };
 
+myArrayProto.find = function(callback) {
+
+  for (let i = 0; i < this.length; ++i) {
+
+    if (callback(this[i], i, this))
+      return this[i];
+
+  }
+};
+
+
 
 MyArray.prototype = myArrayProto;
 
