@@ -133,14 +133,12 @@ myArrayProto.pop = function() {
 
   const lastItem = this[this.length - 1];
   delete this[this.length - 1];
+  this.length--;
   return lastItem;
 
 };
 
 MyArray.prototype = myArrayProto;
-
-
-
 
 const t = new MyArray(1, 2, 3);
 alert(MyArray.isMyArray(t));
