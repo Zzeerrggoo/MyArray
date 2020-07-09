@@ -110,6 +110,28 @@ myArrayProto.reduce = function(callback, initialValue = this[0]) {
 
 };
 
+myArrayProto.concat = function(value1) {
+
+  const res = new MyArray();
+
+  for (let i = 0; i < this.length; i++) {
+    res.push(this[i]);
+  }
+
+  for (let i = 0; i < arguments.length; ++i) {
+    if (MyArray.isMyArray(arguments[i])) {
+      for (let j = 0; j < arguments[i].length; ++j) {
+        res.push(arguments[i][j]);
+      }
+    } else {
+      res.push(arguments[i]);
+    }
+
+  }
+
+  return res;
+};
+
 myArrayProto.flat = function flat(depth = 1) {
 
   if (depth === 0) return this;
@@ -140,5 +162,7 @@ myArrayProto.pop = function() {
 
 MyArray.prototype = myArrayProto;
 
-const t = new MyArray(1, 2, 3);
-const t1 = [1,2,3];
+
+const t = new MyArray(1, MyArray(2, MyArray(3)));
+
+t.flat();
