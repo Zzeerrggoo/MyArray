@@ -34,8 +34,9 @@ myArrayProto.find = function(callback) {
 
   for (let i = 0; i < this.length; ++i) {
 
-    if (callback(this[i], i, this))
+    if (callback(this[i], i, this)) {
       return this[i];
+    }
 
   }
 };
@@ -46,7 +47,9 @@ myArrayProto.includes = function(searchElement, fromIndex = 0) {
 
   for (let i = fromIndex; i < this.length; ++i) {
 
-    if (this[i] === searchElement) return true;
+    if (this[i] === searchElement) {
+      return true;
+    }
   }
 
   return false;
@@ -54,7 +57,9 @@ myArrayProto.includes = function(searchElement, fromIndex = 0) {
 
 myArrayProto.join = function(separator = ',') {
 
-  if (this.length === 0) return '';
+  if (this.length === 0) {
+    return '';
+  }
 
   let res = '';
   for (let i = 0; i < this.length - 1; ++i) {
@@ -73,7 +78,9 @@ myArrayProto.filter = function(callback) {
 
   for (let i = 0; i < this.length; ++i) {
 
-    if (callback(this[i], i, this)) res.push(this[i]);
+    if (callback(this[i], i, this)) {
+      res.push(this[i]);
+    }
 
   }
 
@@ -97,8 +104,9 @@ myArrayProto.map = function(callback) {
 
 myArrayProto.reduce = function(callback, initialValue = this[0]) {
 
-  if (this.length === 1)
+  if (this.length === 1) {
     return this;
+  }
 
   let accumulator = initialValue;
 
@@ -134,7 +142,9 @@ myArrayProto.concat = function(value1) {
 
 myArrayProto.flat = function flat(depth = 1) {
 
-  if (depth === 0) return this;
+  if (depth === 0) {
+    return this;
+  }
 
   let res = new MyArray();
 
@@ -161,7 +171,6 @@ myArrayProto.pop = function() {
 };
 
 MyArray.prototype = myArrayProto;
-
 
 const t = new MyArray(1, MyArray(2, MyArray(3)));
 
