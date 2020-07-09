@@ -83,7 +83,7 @@ myArrayProto.filter = function(callback) {
 
 myArrayProto.map = function(callback) {
 
-  const res = [];
+  const res = new MyArray();
 
   for (let i = 0; i < this.length; ++i) {
 
@@ -141,4 +141,4 @@ myArrayProto.pop = function() {
 MyArray.prototype = myArrayProto;
 
 const t = new MyArray(1, 2, 3);
-alert(MyArray.isMyArray(t));
+const t1 = [1,2,3];
