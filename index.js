@@ -136,7 +136,7 @@ myArrayProto.flat = function flat(depth = 1) {
 
   if (depth === 0) return this;
 
-  let res = [];
+  let res = new MyArray();
 
   for (let i = 0; i < this.length; ++i) {
 
@@ -147,7 +147,7 @@ myArrayProto.flat = function flat(depth = 1) {
     }
   }
 
-  return res;
+  return res.filter(item => item !== undefined);
 
 };
 
