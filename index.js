@@ -69,7 +69,7 @@ myArrayProto.join = function(separator = ',') {
 
 myArrayProto.filter = function(callback) {
 
-  const res = [];
+  const res = new MyArray();
 
   for (let i = 0; i < this.length; ++i) {
 
